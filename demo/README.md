@@ -2,6 +2,12 @@
 
 A small Next.js + Supabase demo showing **employer contact details redacted at the database level**, not just hidden in the UI.
 
+## Live demo
+
+https://confidential-jobboard-demo.vercel.app
+
+On the sign-in page, click **Admin**, **Employer** or **Recruiter** to fill in a demo account, then click **Sign in**.
+
 ## Roles
 
 | Role | Sees jobs | Sees company name & contact |
@@ -21,17 +27,9 @@ Row Level Security on `job_private` only allows the owning employer and the admi
 
 ## Try it
 
-Live demo: _add your Vercel link here_
-
-| Account | Password |
-|---|---|
-| admin@demo.com | _demo password_ |
-| employer@demo.com | _demo password_ |
-| recruiter@demo.com | _demo password_ |
-
-1. Sign in as the employer and post a role.
-2. Sign in as the recruiter: the role shows, but company and contact are redacted.
-3. Sign in as the admin: everything is visible.
+1. Sign in as the **Employer** and post a role.
+2. Sign out, then sign in as the **Recruiter**: the role shows, but company and contact are redacted.
+3. Sign out, then sign in as the **Admin**: everything is visible.
 
 ## Run locally
 
@@ -41,4 +39,4 @@ cp .env.local.example .env.local   # add your Supabase URL and anon key
 npm run dev
 ```
 
-Stack: Next.js 14 (App Router), Supabase (Postgres, Auth, RLS), deployed on Vercel.
+Stack: Next.js 14 (App Router), Supabase (Postgres, Auth, Row Level Security), deployed on Vercel.
